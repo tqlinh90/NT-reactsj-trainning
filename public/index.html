@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+
+</head>
+<body>
+    <div id="root">Content</div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script>
+
+        function Card(props) {
+            return React.createElement('div', {className: 'card'},
+                React.createElement('h1', {},
+                    React.createElement('i', {className: props.icon}),
+                ),
+                React.createElement('h1', {className: 'card-title'}, props.title),
+                React.createElement('h5', {className: 'card-text'}, props.text)
+            );
+        }
+
+        var App = React.createElement('div', {className: 'card-columns'},
+        React.createElement(Card, {
+            title: '$1500',
+            icon: 'fa fa-coffee',
+            text: 'card 1'
+        }),
+        React.createElement(Card, {
+            title: '$5000',
+            icon: 'fa fa-heart',
+            text: 'card 2'
+        }),        
+        );
+        var root = document.querySelector('#root');
+        ReactDOM.render(App, root);
+    </script>
+</body>
+</html>
